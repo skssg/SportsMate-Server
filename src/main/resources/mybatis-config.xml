@@ -14,16 +14,25 @@
         <!-- common -->
 
         <!-- Member -->
-         <typeAlias type="com.kh.sportsmate.member.model.dto.MemberPosition" alias="MemberPosition"/>
-        <typeAlias type="com.kh.sportsmate.Attachment.model.vo.Profile" alias="Profile"/>
-     	<typeAlias type="com.kh.sportsmate.match.model.vo.Match" alias="Match"/>
-        <typeAlias type="com.kh.sportsmate.board.model.vo.Board" alias="Board"/>
+        <typeAlias type="com.kh.sportsmate.member.model.dto.MemberPosition" alias="MemberPosition"/>
+<!--        <typeAlias type="com.kh.sportsmate.place.model.vo.PlaceReview" alias="PlaceReview"/>-->
+        <typeAlias type="com.kh.sportsmate.board.model.vo.BoardComment" alias="BoardComment"/>
+        <typeAlias type="com.kh.sportsmate.member.model.vo.Member" alias="Member"/>
+        <typeAlias type="com.kh.sportsmate.member.model.vo.Category" alias="Category"/>
+        <!-- Team -->
         <typeAlias type="com.kh.sportsmate.team.model.vo.Team" alias="Team"/>
         <typeAlias type="com.kh.sportsmate.team.model.vo.TeamBoard" alias="TeamBoard"/>
         <typeAlias type="com.kh.sportsmate.team.model.vo.TeamMember" alias="TeamMember"/>
         <typeAlias type="com.kh.sportsmate.place.model.vo.PlaceReview" alias="PlaceReview"/>
         <typeAlias type="com.kh.sportsmate.team.model.vo.TeamBoardComment" alias="TeamBoardComment"/>
         <typeAlias type="com.kh.sportsmate.team.model.vo.Recruit" alias="Recruit"/>
+        <typeAlias type="com.kh.sportsmate.team.model.vo.TeamActivityDays" alias="TeamActivityDays"/>
+        <!-- Match -->
+        <typeAlias type="com.kh.sportsmate.match.model.vo.Match" alias="Match"/>
+
+        <!-- Board -->
+        <typeAlias type="com.kh.sportsmate.board.model.vo.Board" alias="Board"/>
+
     	<typeAlias type="com.kh.sportsmate.board.model.vo.BoardComment" alias="BoardComment"/>
     	<typeAlias type="com.kh.sportsmate.member.model.vo.Member" alias="Member"/>
         <typeAlias type="com.kh.sportsmate.member.model.vo.Category" alias="Category"/>
@@ -47,6 +56,7 @@
         <mapper resource="mappers/place-mapper.xml"/>
         <mapper resource="mappers/match-mapper.xml"/>
         <mapper resource="mappers/stadium-mapper.xml"/>
+        <mapper resource="mappers/attachment-mapper.xml"/>
     </mappers>
 
 

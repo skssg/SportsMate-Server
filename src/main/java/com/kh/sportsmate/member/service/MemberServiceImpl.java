@@ -1,5 +1,6 @@
 package com.kh.sportsmate.member.service;
 
+import com.kh.sportsmate.Attachment.model.dao.AttachmentDao;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,6 +23,18 @@ import com.kh.sportsmate.stadium.model.dao.StadiumDao;
 import com.kh.sportsmate.stadium.model.vo.Amenities;
 import com.kh.sportsmate.stadium.model.vo.Rental;
 import com.kh.sportsmate.stadium.model.vo.Stadium;
+import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.Required;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * packageName    : com.kh.sportsmate.service
@@ -35,18 +48,13 @@ import com.kh.sportsmate.stadium.model.vo.Stadium;
  * 2024. 11. 7.        jun       최초 생성
  */
 @Service
+@RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class MemberServiceImpl implements MemberService {
     private final SqlSessionTemplate sqlSession;
     private final MemberDao memberDao;
     private final StadiumDao stadiumDao;
-
-    public MemberServiceImpl(SqlSessionTemplate sqlSession, MemberDao memberDao, StadiumDao stadiumDao) {
-        this.sqlSession = sqlSession;
-        this.memberDao = memberDao;
-        this.stadiumDao = stadiumDao;
-    }
-
+    private final AttachmentDao attachmentDao;
     /**
      * 로그인한 멤버 정보 (R)
      * @param m
@@ -59,7 +67,7 @@ public class MemberServiceImpl implements MemberService {
     	//로그인 로그 객체 추가
     	LoginLog loginLog = new LoginLog();
     	loginLog.setMemNo(loginUser.getMemNo());
-    	
+
     	// 로그인 기록 추가
     	result = memberDao.loginLog(sqlSession, loginLog);
         return loginUser;
@@ -87,7 +95,7 @@ public class MemberServiceImpl implements MemberService {
         System.out.println("memNo : " + processedMember.getMemNo());
         if (profile != null) {
             profile.setMemNo(processedMember.getMemNo());
-            result2 = memberDao.insertProfile(sqlSession, profile);
+            result2 = attachmentDao.insertProfile(sqlSession, profile);
         }
 
         // 종목 관련 내용을 담을 객체

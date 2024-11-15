@@ -194,4 +194,79 @@
 	    WHERE 
 	        COM_NO = #{cno}
 	</update>
+
+	<insert id="insertTeam" parameterType="Team" useGeneratedKeys="true" keyProperty="teamNo" >
+		insert into team(
+		MEM_NO,
+		TEAM_NAME,
+		TEAM_DESCRIPTION,
+		TEAM_MAX_PERSON,
+		TEAM_CATEGORY,
+		ACTIVITY_TIME,
+		ACTIVITY_AREA
+		) values(
+		#{memNo},
+		#{teamName},
+		#{teamDescription},
+		#{teamMaxPerson},
+		#{teamCategory},
+		#{activityTime},
+		#{activityArea}
+		)
+	</insert>
+	<insert id="insertActivityDays" parameterType="TeamActivityDays">
+		insert into TEAM_ACTIVITY_DAYS(
+		<trim suffixOverrides=",">
+			TEAM_NO,
+			<if test="monday == 'Y'">
+				MON,
+			</if>
+			<if test="tuesday == 'Y'">
+				TUES,
+			</if>
+			<if test="wednesday == 'Y'">
+				WEDNES,
+			</if>
+			<if test="thursday == 'Y'">
+				THURS,
+			</if>
+			<if test="friday == 'Y'">
+				FRI,
+			</if>
+			<if test="saturday == 'Y'">
+				SATUR,
+			</if>
+			<if test="sunday == 'Y'">
+				SUN,
+			</if>
+		</trim>
+	
+		)values(
+		<trim suffixOverrides=",">
+			#{teamNo},
+			<if test="monday == 'Y'">
+				#{monday},
+			</if>
+			<if test="tuesday == 'Y'">
+				#{tuesday},
+			</if>
+			<if test="wednesday == 'Y'">
+				#{wednesday},
+			</if>
+			<if test="thursday == 'Y'">
+				#{thursday},
+			</if>
+			<if test="friday == 'Y'">
+				#{friday},
+			</if>
+			<if test="saturday == 'Y'">
+				#{saturday},
+			</if>
+			<if test="sunday == 'Y'">
+				#{sunday}
+			</if>
+		</trim>
+		)
+	</insert>
+
 </mapper>

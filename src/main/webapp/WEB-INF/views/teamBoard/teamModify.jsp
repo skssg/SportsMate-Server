@@ -47,8 +47,8 @@
 				    <div class="day-box" data-day="일">일</div>
 				</div>
 				</div>
-				
-				
+
+
 				<div class="day-input-wrap">
 				    <span class="form-title">활동 시간대</span> <div class="day-select-wrap">
 				    <div class="time-box" data-time="아침">
@@ -69,7 +69,7 @@
 				    </div>
 				     </div>
 				</div>
-				
+
 				<div class="input-wrap">
 					<span class="form-title">활동 지역</span><br> <select
 							name="activityRegion" id="activityRegion">
@@ -124,7 +124,7 @@
 					<span class="form-title">구단 소개</span> <br>
 					<textarea class="team-introduce"></textarea>
 				</div>
-				
+
 
 				<div class="submit-btn">
 					<button type="submit">수정 완료</button>

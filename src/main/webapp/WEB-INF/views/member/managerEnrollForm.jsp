@@ -29,9 +29,9 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <div class="wrap">
+        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
         <div id="enroll-wrap">
             <form action="manager_enroll.me" class="enroll-form" method="post" enctype="multipart/form-data" >
                 <div class="input-wrap">

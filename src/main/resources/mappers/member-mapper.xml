@@ -68,30 +68,30 @@
         #{memStatus}
         )
     </insert>
-    <insert id="insertProfile" parameterType="Profile">
-        INSERT into PROFILE_FILE(
-        <if test="memNo > 0">
-            mem_no,
-        </if>
-        <if test="teamNo > 0">
-            team_no,
-        </if>
-        ORIGIN_NAME,
-        CHANGE_NAME,
-        FILE_PATH
-        )
-        values(
-        <if test="memNo > 0">
-            #{memNo},
-        </if>
-        <if test="teamNo > 0">
-            #{teamNo},
-        </if>
-        #{originName},
-        #{changeName},
-        #{filePath}
-        )
-    </insert>
+<!--    <insert id="insertProfile" parameterType="Profile">-->
+<!--        INSERT into PROFILE_FILE(-->
+<!--        <if test="memNo > 0">-->
+<!--            mem_no,-->
+<!--        </if>-->
+<!--        <if test="teamNo > 0">-->
+<!--            team_no,-->
+<!--        </if>-->
+<!--        ORIGIN_NAME,-->
+<!--        CHANGE_NAME,-->
+<!--        FILE_PATH-->
+<!--        )-->
+<!--        values(-->
+<!--        <if test="memNo > 0">-->
+<!--            #{memNo},-->
+<!--        </if>-->
+<!--        <if test="teamNo > 0">-->
+<!--            #{teamNo},-->
+<!--        </if>-->
+<!--        #{originName},-->
+<!--        #{changeName},-->
+<!--        #{filePath}-->
+<!--        )-->
+<!--    </insert>-->
     <insert id="insertCategory" parameterType="Category">
         insert into category(
         <trim suffixOverrides=",">

@@ -43,9 +43,9 @@ public class MemberDao {
      * @param profile
      * @return
      */
-    public int insertProfile(SqlSessionTemplate sqlSession, Profile profile){
-        return sqlSession.insert("memberMapper.insertProfile", profile);
-    }
+//    public int insertProfile(SqlSessionTemplate sqlSession, Profile profile){
+//        return sqlSession.insert("memberMapper.insertProfile", profile);
+//    }
 
     /***
      * 종목 입력 정보 Insert

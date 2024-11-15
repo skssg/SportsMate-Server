@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.kh.sportsmate.Attachment.model.vo.Profile;
+import com.kh.sportsmate.team.model.vo.*;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -11,10 +13,6 @@ import org.springframework.stereotype.Repository;
 import com.kh.sportsmate.board.model.vo.Board;
 import com.kh.sportsmate.board.model.vo.BoardComment;
 import com.kh.sportsmate.common.vo.PageInfo;
-import com.kh.sportsmate.team.model.vo.Team;
-import com.kh.sportsmate.team.model.vo.TeamBoard;
-import com.kh.sportsmate.team.model.vo.TeamBoardComment;
-import com.kh.sportsmate.team.model.vo.TeamMember;
 
 @Repository
 public class TeamDao {
@@ -78,4 +76,11 @@ public class TeamDao {
 
 	    return (ArrayList)sqlSession.selectList("teamMapper.searchBoard", map, rowBounds);
 	}
+	public int insertTeam(SqlSessionTemplate sqlSession, Team t){
+		return sqlSession.insert("teamMapper.insertTeam", t);
+	}
+	public int insertActivityDays(SqlSessionTemplate sqlSession, TeamActivityDays days){
+		return sqlSession.insert("teamMapper.insertActivityDays", days);
+	}
+
 }

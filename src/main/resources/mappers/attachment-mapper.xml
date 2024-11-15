@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- !namespace : 해당 mapper파일의 고유한 별칭 -->
+<mapper namespace="attachmentMapper">
+    <!--    <resultMap id="memberResultSet" type="Member">-->
+    <!--        &lt;!&ndash;        <result column="테이블 컬럼명" property="객체의 필드"/>&ndash;&gt;-->
+    <!--        <result column="user_ID" property="userId"/>-->
+    <!--        <result column="USER_PWD" property="userPwd"/>-->
+    <!--        <result column="USER_NAME" property="userName"/>-->
+    <!--        <result column="EMAIL" property="email"/>-->
+    <!--        <result column="AGE" property="age"/>-->
+    <!--        <result column="GENDER" property="gender"/>-->
+    <!--        <result column="PHONE" property="phone"/>-->
+    <!--        <result column="ADDRESS" property="address"/>-->
+    <!--        <result column="ENROLL_DATE" property="enrollDate"/>-->
+    <!--        <result column="MODIFY_DATE" property="modifyDate"/>-->
+    <!--        <result column="STATUS" property="status"/>-->
+    <!--    </resultMap>-->
+    
+   
+    
+    <!-- Select -->
+    <!-- Insert -->
+	<insert id="insertProfile" parameterType="Profile">
+		INSERT into PROFILE_FILE(
+		<if test="memNo > 0">
+			mem_no,
+		</if>
+		<if test="teamNo > 0">
+			team_no,
+		</if>
+		ORIGIN_NAME,
+		CHANGE_NAME,
+		FILE_PATH
+		)
+		values(
+		<if test="memNo > 0">
+			#{memNo},
+		</if>
+		<if test="teamNo > 0">
+			#{teamNo},
+		</if>
+		#{originName},
+		#{changeName},
+		#{filePath}
+		)
+	</insert>
+    
+</mapper>

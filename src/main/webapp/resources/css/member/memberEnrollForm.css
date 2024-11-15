@@ -65,7 +65,7 @@ input::-webkit-inner-spin-button {
     justify-content: space-around;
 }
 
-
+/* 회원가입 버튼 활성화/비활성화시 css */
 .none-clickable{
     width: 100%;
     height: 65px;
@@ -89,28 +89,28 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.find-info-wrap {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
+/*.find-info-wrap {*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-around;*/
+/*    align-items: center;*/
+/*}*/
 
-.find-info-wrap a {
-    text-decoration-line: none;
-    color: black;
-}
+/*.find-info-wrap a {*/
+/*    text-decoration-line: none;*/
+/*    color: black;*/
+/*}*/
 
-.find-info {
-    width: 50%;
-    text-align: center;
-}
+/*.find-info {*/
+/*    width: 50%;*/
+/*    text-align: center;*/
+/*}*/
 
-.enroll-member {
-    width: 50%;
-    text-align: center;
-}
+/*.enroll-member {*/
+/*    width: 50%;*/
+/*    text-align: center;*/
+/*}*/
 
 .split-bar {
     width: 100%;
@@ -168,7 +168,10 @@ input::-webkit-inner-spin-button {
     }
 
 
-    .enroll-form input[type='email'], input[type='password'], input[type='text'], select {
+    .enroll-form input[type='email'],
+    .enroll-form input[type='password'],
+    .enroll-form input[type='text'],
+    .enroll-form select {
         font-size: 14px;
 
     }
@@ -184,11 +187,12 @@ input::-webkit-inner-spin-button {
     width: 116px;
     height: 116px;
     border-radius: 50%;
-}
-
-#profileImg {
     cursor: pointer;
 }
+
+/*#profileImg {*/
+/* */
+/*}*/
 
 select option:nth-child(1) {
     color: #757575;
@@ -266,7 +270,4 @@ select option:nth-child(1) {
 }
 #soccer-info, #futsal-info, #basketball-info, #baseball-info{
     display: none;
-}
-.submit-btn > button {
-
 }

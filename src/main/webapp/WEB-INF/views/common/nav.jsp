@@ -17,7 +17,7 @@
             <img src="${pageContext.request.contextPath}/resources/images/grount-btn.png" 
                  alt="구장검색">구장</a>
 
-        <a href="#" class="nav-item">
+        <a href="teamMenu.tm" class="nav-item">
             <img src="${pageContext.request.contextPath}/resources/images/team-btn.png"
                  alt="구단메뉴">구단메뉴</a>
 

@@ -6,7 +6,11 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import com.kh.sportsmate.Attachment.model.vo.Profile;
+import com.kh.sportsmate.team.model.dto.CreateTeamDto;
+import com.kh.sportsmate.team.model.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,13 +26,23 @@ import com.kh.sportsmate.board.service.BoardService;
 import com.kh.sportsmate.team.service.TeamService;
 import com.kh.sportsmate.board.service.BoardService;
 import com.kh.sportsmate.team.service.TeamService;
-import com.kh.sportsmate.team.model.vo.Team;
-import com.kh.sportsmate.team.model.vo.TeamBoard;
-import com.kh.sportsmate.team.model.vo.TeamBoardComment;
-import com.kh.sportsmate.team.model.vo.TeamMember;
 import com.kh.sportsmate.team.service.TeamServiceImpl;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * packageName    : com.kh.sportsmate.team.controller
+ * fileName       : TeamController
+ * author         : jun
+ * date           : 2024. 11. 14.
+ * description    :
+ * ===========================================================
+ * DATE              AUTHOR             NOTE
+ * -----------------------------------------------------------
+ * 2024. 11. 14.        jun       최초 생성
+ */
 @CrossOrigin
+@Slf4j
 @Controller
 public class TeamController {
 
@@ -225,5 +239,34 @@ public class TeamController {
 			m.addAttribute("errorMsg", "댓글 작성 실패");
 			return "redirect:detailMove.bd?bno=" + bno;
 		}
+	}
+    @GetMapping(value = "teamMenu.tm")
+    public String moveTeamMenu(){
+        return "team/teamMenu";
+    }
+	@GetMapping(value = "teamEnrollForm.tm")
+	public String moveTeamEnrollForm(){
+		return "team/teamEnrollForm";
+	}
+	@GetMapping(value = "memberRecruit.tm")
+	public String moveTeamRecruit(){
+		return "team/memberRecruitList";
+	}
+
+	@PostMapping(value = "create.tm")
+	public String insertTeam(CreateTeamDto t, MultipartFile userProfile, HttpSession session){
+		log.info("t : {}",t);
+		// 구단 프로필 이미지 처리
+		Profile profile = null;
+		String path = "resources/images/userProFile/";
+		String savePath = session.getServletContext().getRealPath(path);
+		if (!userProfile.getOriginalFilename().equals("")) {
+			String changeName = Template.saveFile(userProfile, session, path);
+			profile = new Profile(userProfile.getOriginalFilename(), changeName, savePath);
+		}
+		int result = teamService.insertTeam(t, profile);
+
+
+		return "redirect:/";
 	}
 }
